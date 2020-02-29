@@ -13,5 +13,5 @@ Route::group(['namespace' => 'Site'], function () {
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/dashboard', 'HomeController@index')->name('admin.dashboard');
 });

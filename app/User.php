@@ -29,4 +29,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //relations
+    public function type()
+    {
+        return $this->belongsTo('App\UserType', 'user_type_id');
+    }
+
+    // custom method
+    public function isAdmin()
+    {
+        if ($this->type->name === 'Admin') {
+            return true;
+        }
+        return false;
+    }
+
+    public function isMember()
+    {
+        if ($this->type->name === 'Member') {
+            return true;
+        }
+        return false;
+    }
 }

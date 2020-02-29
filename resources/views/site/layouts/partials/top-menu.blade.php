@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #5a6b79 !important;">
-    <a class="navbar-brand" href="#">Crowd Funding</a>
+    <a class="navbar-brand" href="/">Crowd Funding</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -38,11 +38,22 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    @if (auth()->user()->isAdmin())
+                    <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                    @endif
+
+                    @if (auth()->user()->isMember())
+                    <a class="dropdown-item" href="#">Dashboard</a>
+                    @endif
+
+                    <a class="dropdown-item" href="#">Profile</a>
+
+                    {{-- logout button --}}
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
-
+                    {{-- logout form --}}
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
