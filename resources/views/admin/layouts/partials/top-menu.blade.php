@@ -19,8 +19,8 @@
                     Campaigns
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">All Campaign</a>
-                    <a class="dropdown-item" href="#">Create New</a>
+                    <a class="dropdown-item" href="{{ route('campaigns.index') }}">All Campaign</a>
+                    <a class="dropdown-item" href="{{ route('campaigns.create') }}">Create New</a>
                 </div>
             </li>
 
@@ -30,8 +30,8 @@
                     Categories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">All Categories</a>
-                    <a class="dropdown-item" href="#">Create New</a>
+                    <a class="dropdown-item" href="{{ route('campaign-categories.index') }}">All Categories</a>
+                    <a class="dropdown-item" href="{{ route('campaign-categories.create') }}">Create New</a>
                 </div>
             </li>
 

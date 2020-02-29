@@ -12,6 +12,12 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/contact', 'SiteController@contact')->name('site.contact');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
-    Route::get('/dashboard', 'HomeController@index')->name('admin.dashboard');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    //dashboard route
+    Route::get('/dashboard', 'Admin\HomeController@index')->name('admin.dashboard');
+
+    // campaign categories routes
+    Route::resource('campaign-categories', 'CampaignCategoryController');
+    // campaign routes
+    Route::resource('campaigns', 'CampaignController');
 });
