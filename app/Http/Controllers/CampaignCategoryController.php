@@ -14,7 +14,8 @@ class CampaignCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = CampaignCategory::get();
+        return view('admin.campaign-categories/index', compact('categories'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CampaignCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.campaign-categories/create');
     }
 
     /**
@@ -35,7 +36,14 @@ class CampaignCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // TODO:: add validation
+        $campaignCategory = new CampaignCategory();
+        $campaignCategory->name = $request->name;
+        $campaignCategory->description = $request->description;
+        // TODO:: handle image upload
+        $campaignCategory->save();
+
+        return redirect()->route('campaign-categories.index');
     }
 
     /**
@@ -57,7 +65,7 @@ class CampaignCategoryController extends Controller
      */
     public function edit(CampaignCategory $campaignCategory)
     {
-        //
+        return view('admin.campaign-categories/edit');
     }
 
     /**
