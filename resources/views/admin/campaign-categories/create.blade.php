@@ -51,17 +51,10 @@
 
                         </div>
 
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="is_active" id="is_active"
-                                    value="1" checked>
-                                Active
-                            </label>
-                        </div>
-
                         <div class="form-group mb-0">
                             <div class="text-right">
-
+                                <a class="btn btn-danger" href="{{ route('campaign-categories.index') }}"
+                                    role="button"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </div>

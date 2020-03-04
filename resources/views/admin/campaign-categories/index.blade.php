@@ -21,7 +21,17 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Create New Category</div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4>Create New Category</h4>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a class="btn btn-primary" href="{{ route('campaign-categories.create') }}" role="button"><i
+                                    class="fa fa-plus" aria-hidden="true"></i> Create New</a>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card-body">
 
@@ -39,20 +49,43 @@
 
                             @foreach ($categories as $category)
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{$category->name}}</td>
                                 <td>{{$category->description}}</td>
                                 <td>
-                                    @if ($category->is_active)
-                                    <button type="button" name="changeStatus" class="btn btn-sm btn-primary">On</button>
-                                    @else
-                                    <button type="button" name="changeStatus" class="btn btn-sm btn-danger">Off</button>
-                                    @endif
+
+                                    <form
+                                        action="{{ route('campaign-categories.update', ['campaign_category' => $category->id]) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('PATCH')
+                                        <input type="hidden" name="status" value="CHANGE_STATUS">
+
+                                        @if ($category->is_active)
+                                        <button type="submit" name="changeStatus" class="btn btn-sm btn-primary"><i
+                                                class="fa fa-check" aria-hidden="true"></i></button>
+                                        @else
+                                        <button type="submit" name="changeStatus" class="btn btn-sm btn-danger"><i
+                                                class="fa fa-times" aria-hidden="true"></i></button>
+                                        @endif
+                                    </form>
+
                                 </td>
                                 <td>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-primary">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    <div class="d-inline-flex">
+                                        <a class="btn btn-primary mr-2"
+                                            href="{{ route('campaign-categories.edit', ['campaign_category' => $category->id]) }}"
+                                            role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        <form
+                                            action="{{ route('campaign-categories.destroy', ['campaign_category' => $category->id]) }}"
+                                            method="post">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"
+                                                    aria-hidden="true"></i></button>
+                                        </form>
+
                                     </div>
                                 </td>
                             </tr>

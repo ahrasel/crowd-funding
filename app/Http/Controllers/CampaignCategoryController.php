@@ -65,7 +65,7 @@ class CampaignCategoryController extends Controller
      */
     public function edit(CampaignCategory $campaignCategory)
     {
-        return view('admin.campaign-categories/edit');
+        return view('admin.campaign-categories/edit', compact('campaignCategory'));
     }
 
     /**
@@ -77,7 +77,18 @@ class CampaignCategoryController extends Controller
      */
     public function update(Request $request, CampaignCategory $campaignCategory)
     {
-        //
+        if ($request->status === "CHANGE_STATUS") {
+            $campaignCategory->is_active = !$campaignCategory->is_active;
+            $campaignCategory->update();
+        } else {
+            $campaignCategory->name = $request->name;
+            $campaignCategory->description = $request->description;
+            // TODO:: handle image upload
+            $campaignCategory->update();
+        }
+
+
+        return redirect()->route('campaign-categories.index');
     }
 
     /**
@@ -88,6 +99,7 @@ class CampaignCategoryController extends Controller
      */
     public function destroy(CampaignCategory $campaignCategory)
     {
-        //
+        $campaignCategory->delete();
+        return redirect()->route('campaign-categories.index');
     }
 }
