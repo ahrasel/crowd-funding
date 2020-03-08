@@ -25,17 +25,18 @@
                     <h4>All Replies</h4>
                 </div>
                 <div class="card-body">
-                    <div class="media">
+
+                    @foreach ($contactQuery->replies as $replay)
+                    <div class="media mb-3">
                         <img src="{{ asset('site/img/solid.jpg') }}" class="mr-3">
                         <div class="media-body">
-                            <h5 class="mt-0">Jhon Doe</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-                            Cras purus odio,
-                            vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                            fringilla. Donec
-                            lacinia congue felis in faucibus.
+                            <h5 class="mt-0">{{ $replay->first_name }} {{ $replay->last_name }}</h5>
+                            {{ $replay->message }}
                         </div>
                     </div>
+                    @endforeach
+
+
                 </div>
 
                 <div class="card-footer">

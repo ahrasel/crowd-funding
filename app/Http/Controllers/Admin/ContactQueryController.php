@@ -15,7 +15,7 @@ class ContactQueryController extends Controller
      */
     public function index()
     {
-        $contactQueries = ContactQuery::get();
+        $contactQueries = ContactQuery::whereNull('parent_id')->get();
         return view('admin.contact-queries/index', compact('contactQueries'));
     }
 
@@ -71,7 +71,21 @@ class ContactQueryController extends Controller
      */
     public function update(Request $request, ContactQuery $contactQuery)
     {
-        //
+        $user = auth()->user();
+        // dd($contactQuery);
+
+        // save contact query
+        $replay = new ContactQuery();
+        $replay->parent_id = $contactQuery->id;
+        $replay->first_name = $user->first_name;
+        $replay->last_name = $user->last_name;
+        $replay->email = $user->email;
+        $replay->subject = $contactQuery->subject;
+        $replay->message = $request->replay_message;
+        $replay->save();
+
+        //return back to contact page
+        return back();
     }
 
     /**
