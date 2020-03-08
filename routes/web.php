@@ -11,6 +11,7 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/about-us', 'SiteController@aboutUs')->name('site.about-us');
     Route::get('/contact', 'SiteController@contact')->name('site.contact');
     Route::post('/contact', 'SiteController@storeContactInfo')->name('site.contactStore');
+    Route::get('/profile', 'SiteController@profile')->name('site.profile');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {

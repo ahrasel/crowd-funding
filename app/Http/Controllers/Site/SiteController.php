@@ -40,4 +40,10 @@ class SiteController extends Controller
         //return back to contact page
         return back();
     }
+
+    public function profile()
+    {
+        $user = auth()->user();
+        return view('site.profile', compact('user'));
+    }
 }

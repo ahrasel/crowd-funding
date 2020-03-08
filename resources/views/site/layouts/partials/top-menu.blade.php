@@ -46,7 +46,7 @@
                     <a class="dropdown-item" href="#">Dashboard</a>
                     @endif
 
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="{{ route('site.profile') }}">Profile</a>
 
                     {{-- logout button --}}
                     <a class="dropdown-item" href="{{ route('logout') }}"
