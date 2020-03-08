@@ -19,6 +19,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     // campaign categories routes
     Route::resource('campaign-categories', 'Admin\CampaignCategoryController');
+
     // campaign routes
-    Route::resource('campaigns', 'CampaignController');
+    // Route::resource('campaigns', 'CampaignController');
+
+    // Contact Queries Routes
+    Route::resource('contact-queries', 'Admin\ContactQueryController');
 });

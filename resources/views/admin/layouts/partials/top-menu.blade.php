@@ -46,6 +46,10 @@
                 </div>
             </li> --}}
 
+    <li class="nav-item active">
+        <a class="nav-link" href=" {{ route('contact-queries.index') }} ">Contact Queries</span></a>
+    </li>
+
     </ul>
 
     <ul class="navbar-nav ml-auto">

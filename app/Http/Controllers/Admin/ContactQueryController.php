@@ -15,7 +15,8 @@ class ContactQueryController extends Controller
      */
     public function index()
     {
-        //
+        $contactQueries = ContactQuery::get();
+        return view('admin.contact-queries/index', compact('contactQueries'));
     }
 
     /**
@@ -47,7 +48,7 @@ class ContactQueryController extends Controller
      */
     public function show(ContactQuery $contactQuery)
     {
-        //
+        return view('admin.contact-queries/show', compact('contactQuery'));
     }
 
     /**
@@ -81,6 +82,7 @@ class ContactQueryController extends Controller
      */
     public function destroy(ContactQuery $contactQuery)
     {
-        //
+        $contactQuery->delete();
+        return back();
     }
 }
