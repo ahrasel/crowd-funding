@@ -11,10 +11,25 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
+
+                    @if (session()->has('status'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong> {{ session('status') }} </strong>
+                    </div>
+                    @endif
+
+                    <script>
+                        $(".alert").alert();
+                    </script>
+
                     <h2>Get In Touch</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quos bl </p>
 
-                    <form action="" method="post">
+                    <form action=" {{ route('site.contactStore') }} " method="post">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -35,18 +50,19 @@
                                 <div class="form-group">
                                     <label for="email">Email</label>
                                     <input type="email" name="email" id="email" class="form-control" placeholder="email"
-                                        aria-describedby="email">
+                                        aria-describedby="email" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="subject">Subject</label>
                                     <input type="text" name="subject" id="subject" class="form-control"
-                                        placeholder="subject" aria-describedby="subject">
+                                        placeholder="subject" aria-describedby="subject" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="message">Message</label>
-                                    <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                                    <textarea class="form-control" name="message" id="message" rows="3"
+                                        required></textarea>
                                 </div>
 
                                 <div class="text-right">

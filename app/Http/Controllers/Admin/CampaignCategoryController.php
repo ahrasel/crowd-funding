@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\CampaignCategory;
 use Illuminate\Http\Request;
+use App\Models\CampaignCategory;
+use App\Http\Controllers\Controller;
 
 class CampaignCategoryController extends Controller
 {
