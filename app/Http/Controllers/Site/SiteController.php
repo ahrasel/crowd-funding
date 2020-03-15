@@ -44,6 +44,6 @@ class SiteController extends Controller
     public function profile()
     {
         $user = auth()->user();
-        return view('site.profile', compact('user'));
+        return view('site.profile.profile', compact('user'));
     }
 }
