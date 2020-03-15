@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campaign;
+use App\Models\CampaignCategory;
 use Illuminate\Http\Request;
 
 class CampaignController extends Controller
@@ -24,7 +25,8 @@ class CampaignController extends Controller
      */
     public function create()
     {
-        //
+        $categories = CampaignCategory::get();
+        return view('member.campaigns/create', compact('categories'));
     }
 
     /**
@@ -35,7 +37,16 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campaign = new Campaign;
+        $campaign->title = $request->title;
+        $campaign->campaign_category_id = $request->campaign_category_id;
+        $campaign->description = $request->description;
+        $campaign->target_amount = $request->target_amount;
+        $campaign->created_by = auth()->user()->id;
+        // TODO:: handle document upload issues
+        $campaign->save();
+
+        return back();
     }
 
     /**
