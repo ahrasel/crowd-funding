@@ -23,7 +23,7 @@
 
 <body>
     <div id="app">
-        @include('admin.layouts/partials/top-menu')
+        @include('member.layouts/partials/top-menu')
         <main class="py-4">
             @yield('content')
         </main>

@@ -14,6 +14,13 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/profile', 'SiteController@profile')->name('site.profile')->middleware('auth');
 });
 
+
+
+Route::group(['prefix' => 'member', 'middleware' => 'auth'], function () {
+    //dashboard route
+    Route::get('/dashboard', 'Member\HomeController@index')->name('member.dashboard');
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     //dashboard route
     Route::get('/dashboard', 'Admin\HomeController@index')->name('admin.dashboard');

@@ -43,7 +43,7 @@
                     @endif
 
                     @if (auth()->user()->isMember())
-                    <a class="dropdown-item" href="#">Dashboard</a>
+                    <a class="dropdown-item" href=" {{ route('member.dashboard') }} ">Dashboard</a>
                     @endif
 
                     <a class="dropdown-item" href="{{ route('site.profile') }}">Profile</a>
