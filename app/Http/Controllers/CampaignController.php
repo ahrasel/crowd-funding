@@ -16,8 +16,9 @@ class CampaignController extends Controller
     public function index()
     {
         // for member
-        if (auth()->user()->isMember()) {
-            $campaigns = Campaign::where('created_by', auth()->user()->id)->get();
+        $user = auth()->user();
+        if ($user->isMember()) {
+            $campaigns = Campaign::where('created_by', $user->id)->orderBy('created_at', 'desc')->get();
             return view('member.campaigns/index', compact('campaigns'));
         }
     }
@@ -47,6 +48,7 @@ class CampaignController extends Controller
         $campaign->description = $request->description;
         $campaign->target_amount = $request->target_amount;
         $campaign->created_by = auth()->user()->id;
+        // TODO:: Add feature image field
         // TODO:: handle document upload issues
         $campaign->save();
 

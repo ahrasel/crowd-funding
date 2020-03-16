@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
+use App\User;
 use App\Models\ContactQuery;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class SiteController extends Controller
 {
@@ -45,5 +47,35 @@ class SiteController extends Controller
     {
         $user = auth()->user();
         return view('site.profile.profile', compact('user'));
+    }
+
+    public function updateProfile(Request $request, User $user)
+    {
+        $user->first_name = $request->first_name;
+        $user->email = $request->email;
+        $user->mobile = $request->mobile;
+        $user->nid = $request->nid;
+        $user->last_name = $request->last_name;
+        $user->phone = $request->phone;
+        $user->dob = $request->dob;
+        $user->address = $request->address;
+        // TODO:: handle image upload
+        $user->update();
+
+        return back();
+    }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        // TODO:: Add validation Message
+        // TODO:: add confirmation message
+        if (Hash::check($request->current_password, $user->password)) {
+            if ($request->new_password === $request->confirm_password) {
+                $user->password = Hash::make($request->new_password);
+                $user->update();
+            }
+        }
+
+        return back();
     }
 }

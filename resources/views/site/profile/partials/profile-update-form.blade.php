@@ -1,6 +1,8 @@
 <div class="card mb-5">
     <div class="card-body">
-        <form action="" method="post">
+        <form action="{{ route('site.profile-update', [$user->id]) }}" method="post">
+            @csrf
+            @method('PATCH')
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">

@@ -1,6 +1,8 @@
 <div class="card mb-5">
     <div class="card-body">
-        <form action="" method="post">
+        <form action="{{ route('site.password-update', [$user->id]) }}" method="post">
+            @csrf
+            @method('PATCH')
             <div class="row justify-content-center">
                 <div class="col-sm-7">
                     <div class="form-group">
