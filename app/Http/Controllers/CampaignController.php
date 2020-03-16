@@ -15,7 +15,11 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        //
+        // for member
+        if (auth()->user()->isMember()) {
+            $campaigns = Campaign::where('created_by', auth()->user()->id)->get();
+            return view('member.campaigns/index', compact('campaigns'));
+        }
     }
 
     /**
@@ -46,7 +50,7 @@ class CampaignController extends Controller
         // TODO:: handle document upload issues
         $campaign->save();
 
-        return back();
+        return redirect()->route('campaigns.index');
     }
 
     /**
@@ -57,7 +61,10 @@ class CampaignController extends Controller
      */
     public function show(Campaign $campaign)
     {
-        //
+        // for member
+        if (auth()->user()->isMember()) {
+            return view('member.campaigns/show', compact('campaign'));
+        }
     }
 
     /**

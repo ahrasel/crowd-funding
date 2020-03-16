@@ -24,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('member.home');
+        return redirect()->route('campaigns.index');
+        // return view('member.home');
     }
 }

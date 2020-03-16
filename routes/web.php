@@ -24,6 +24,8 @@ Route::group(['prefix' => 'member', 'middleware' => 'auth'], function () {
     //Campaign Routes
     Route::get('create-campaign', 'CampaignController@create')->name('campaigns.create');
     Route::post('create-campaign', 'CampaignController@store')->name('campaigns.store');
+    Route::get('all-campings', 'CampaignController@index')->name('campaigns.index');
+    Route::get('campings/{campaign}', 'CampaignController@show')->name('campaigns.show');
 });
 
 // Admin Routes
