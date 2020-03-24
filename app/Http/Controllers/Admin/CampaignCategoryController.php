@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Helpers\FileUploader;
 use App\Models\CampaignCategory;
+use Illuminate\Http\FileHelpers;
 use App\Http\Controllers\Controller;
 
 class CampaignCategoryController extends Controller
@@ -15,7 +17,7 @@ class CampaignCategoryController extends Controller
      */
     public function index()
     {
-        $categories = CampaignCategory::get();
+        $categories = CampaignCategory::OrderBy('created_at', 'desc')->get();
         return view('admin.campaign-categories/index', compact('categories'));
     }
 
@@ -37,11 +39,14 @@ class CampaignCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO:: add validation
+        $request->validate([
+            'name' => 'required|unique:campaign_categories',
+        ]);
+
         $campaignCategory = new CampaignCategory();
         $campaignCategory->name = $request->name;
         $campaignCategory->description = $request->description;
-        // TODO:: handle image upload
+        $campaignCategory->image = FileUploader::uploadSingleFile($request->file('image'));
         $campaignCategory->save();
 
         return redirect()->route('campaign-categories.index');

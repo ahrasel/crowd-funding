@@ -18,13 +18,16 @@
 
 @section('content')
 <div class="container container-center">
+
+    @include('_partials.message')
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Create New Category</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('campaign-categories.store') }}">
+                    <form method="POST" action="{{ route('campaign-categories.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
