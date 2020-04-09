@@ -26,6 +26,6 @@
 @include('site.home/partials/home-slider')
 {{-- top slider end --}}
 
-
+<h1>This For Client Test</h1>
 
 @endsection
