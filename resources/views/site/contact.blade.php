@@ -6,8 +6,9 @@
 @endsection
 
 @section('content')
+
 <div class="container mt-5">
-    <div class="row justify-content-center">
+    <div class="row ">
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
@@ -75,10 +76,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+
+        <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
-                    <h2>Our Office Info</h2>
+                    <h2>Our Office Information</h2>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores suscipit, et corrupti nobis
                         officia quis porro hic rem labore unde temporibus asperiores. Voluptates alias harum corrupti
                         aspernatur itaque, magni ratione dolorum architecto earum qui aliquam ipsam quidem quae</p>

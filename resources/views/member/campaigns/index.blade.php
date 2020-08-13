@@ -19,7 +19,6 @@
 @section('content')
 <div class="container container-center">
     <div class="row justify-content-center">
-
         @foreach ($campaigns as $campaign)
         <div class="col-sm-6">
             <div class="card mb-3" style="max-width: 540px;">
@@ -83,8 +82,6 @@
             </div>
         </div>
         @endforeach
-
-
     </div>
 </div>
 @endsection

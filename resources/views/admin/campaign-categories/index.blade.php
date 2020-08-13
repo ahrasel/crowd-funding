@@ -26,6 +26,7 @@
                         <div class="col-8">
                             <h4>Create New Category</h4>
                         </div>
+
                         <div class="col-4 text-right">
                             <a class="btn btn-primary" href="{{ route('campaign-categories.create') }}" role="button"><i
                                     class="fa fa-plus" aria-hidden="true"></i> Create New</a>
@@ -46,31 +47,58 @@
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
+                        {{-- while 
+                        do wile 
+                        for
+
+                        foreach -> loop  --}}
+
+                        {{-- for( i=1; i < 10; i++){} --}}
+
+                        {{-- array = ['a', 'b', 'c']; --}}
+
+                        {{-- {{ dd($categories) }} --}}
+
                         <tbody>
                             @foreach ($categories as $category)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
+                                {{-- only for serial number --}}
+
                                 <td>{{$category->name}}</td>
+
                                 <td>
                                     @include('_partials.table-image', ['image' => $category->image])
                                 </td>
                                 <td>{{$category->description}}</td>
+
                                 <td>
 
                                     <form
                                         action="{{ route('campaign-categories.update', ['campaign_category' => $category->id]) }}"
                                         method="post">
+
+                                        {{-- if(condition){
+                                            a
+                                        }
+                                        else{
+                                            b
+                                        } --}}
+
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="status" value="CHANGE_STATUS">
 
                                         @if ($category->is_active)
+                                        {{ $category->is_active }}
                                         <button type="submit" name="changeStatus" class="btn btn-sm btn-primary"><i
                                                 class="fa fa-check" aria-hidden="true"></i></button>
                                         @else
+                                        {{ $category->is_active }}
                                         <button type="submit" name="changeStatus" class="btn btn-sm btn-danger"><i
                                                 class="fa fa-times" aria-hidden="true"></i></button>
                                         @endif
+
                                     </form>
 
                                 </td>
