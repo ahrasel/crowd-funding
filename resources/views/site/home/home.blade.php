@@ -1,3 +1,7 @@
+
+
+
+{{--
 @extends('site.layouts/master')
 
 @section('headerStyles')
@@ -22,10 +26,10 @@
 @endsection
 
 @section('content')
-{{-- top slider start --}}
+ top slider start
 @include('site.home/partials/home-slider')
-{{-- top slider end --}}
+ top slider end
 
 <h1>This For Client Test</h1>
 
-@endsection
+@endsection--}}
