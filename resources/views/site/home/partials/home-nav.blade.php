@@ -36,7 +36,7 @@
     </div>
 </section>
 
-<!--<section>
+<section>
     <div class="container-fluid" style="background:#34495E ">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark ">
@@ -72,4 +72,4 @@
             </nav>
         </div>
     </div>
-</section>-->
+</section>
