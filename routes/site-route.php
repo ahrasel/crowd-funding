@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Site'], function () {
     Route::get('/', 'SiteController@home')->name('site.home');
 
+    Route::get('/how-it-work', 'SiteController@howItWork')->name('site.how-it-work');
     Route::get('/about-us', 'SiteController@aboutUs')->name('site.about-us');
 
     Route::get('/contact', 'SiteController@contact')->name('site.contact');

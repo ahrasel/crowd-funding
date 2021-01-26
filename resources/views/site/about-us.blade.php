@@ -5,7 +5,7 @@
 </style>
 @endsection
 
-@section('content')
+@section('contents')
 <div class="container">
     <div class="row mt-4">
         <div class="col-sm-12">

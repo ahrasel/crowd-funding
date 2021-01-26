@@ -53,13 +53,13 @@
                             <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.php">About Us</a>
+                            <a class="nav-link" href="{{ route('site.about-us') }}">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="work.php">How it Works</a>
+                            <a class="nav-link" href="{{ route('site.how-it-work') }}">How it Works</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.php">Contact Us</a>
+                            <a class="nav-link" href="{{ route('site.contact') }}">Contact Us</a>
                         </li>
 
 
