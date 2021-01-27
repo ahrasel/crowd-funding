@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 
 // Admin Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {

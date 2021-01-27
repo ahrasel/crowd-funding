@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 // Member Routs
 Route::group(['prefix' => 'member', 'middleware' => 'auth'], function () {
     //dashboard route
