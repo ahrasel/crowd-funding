@@ -28,8 +28,8 @@
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-4 col-12" style="padding:15px">
-                    <a href="login.php" class="btn btn-primary  btn-sm">Login</a>
-                    <a href="register.php" class="btn btn-primary  btn-sm">Register</a>
+                    <a href="{{ route('login') }}" class="btn btn-primary  btn-sm">Login</a>
+                    <a href="{{ route('register') }}" class="btn btn-primary  btn-sm">Register</a>
                 </div>
             </div>
         </div>
