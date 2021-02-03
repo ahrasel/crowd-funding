@@ -5,8 +5,8 @@
     <!-- Slider end. -->
 
     @include('site.home.partials.verified-campaign')
-    
+
     @include('site.home.partials.home-how-it-work')
-    
-    @include('site.home.partials.categories')
+
+    @include('site.home.partials.home-categories')
 @endsection

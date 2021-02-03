@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Models\Campaign;
+use App\Models\CampaignCategory;
 use App\User;
 use App\Models\ContactQuery;
 use Illuminate\Http\Request;
@@ -14,7 +15,9 @@ class SiteController extends Controller
     public function home()
     {
         $campaigns = Campaign::latest()->get();
-        return view('site.home.home', compact('campaigns'));
+        $campaignCategories = CampaignCategory::latest()->get();
+
+        return view('site.home.home', compact('campaigns', 'campaignCategories'));
     }
 
     public function howItWork()
