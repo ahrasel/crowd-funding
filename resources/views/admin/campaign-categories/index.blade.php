@@ -47,18 +47,6 @@
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
-                        {{-- while 
-                        do wile 
-                        for
-
-                        foreach -> loop  --}}
-
-                        {{-- for( i=1; i < 10; i++){} --}}
-
-                        {{-- array = ['a', 'b', 'c']; --}}
-
-                        {{-- {{ dd($categories) }} --}}
-
                         <tbody>
                             @foreach ($categories as $category)
                             <tr>
@@ -73,32 +61,20 @@
                                 <td>{{$category->description}}</td>
 
                                 <td>
-
-                                    <form
-                                        action="{{ route('campaign-categories.update', ['campaign_category' => $category->id]) }}"
-                                        method="post">
-
-                                        {{-- if(condition){
-                                            a
-                                        }
-                                        else{
-                                            b
-                                        } --}}
-
+                                    <form action="{{ route('campaign-categories.update', ['campaign_category' => $category->id]) }}" method="post">
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="status" value="CHANGE_STATUS">
 
                                         @if ($category->is_active)
-                                        {{ $category->is_active }}
-                                        <button type="submit" name="changeStatus" class="btn btn-sm btn-primary"><i
-                                                class="fa fa-check" aria-hidden="true"></i></button>
+                                        <button type="submit" name="changeStatus" class="btn btn-sm btn-primary">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </button>
                                         @else
-                                        {{ $category->is_active }}
-                                        <button type="submit" name="changeStatus" class="btn btn-sm btn-danger"><i
-                                                class="fa fa-times" aria-hidden="true"></i></button>
+                                        <button type="submit" name="changeStatus" class="btn btn-sm btn-danger">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
                                         @endif
-
                                     </form>
 
                                 </td>
@@ -112,9 +88,9 @@
                                             method="post">
                                             @csrf
                                             @method('DELETE')
-
-                                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"
-                                                    aria-hidden="true"></i></button>
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
                                         </form>
 
                                     </div>
