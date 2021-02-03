@@ -30,6 +30,14 @@
                 <div class="col-lg-4 col-md-4 col-12" style="padding:15px">
                     <a href="{{ route('login') }}" class="btn btn-primary  btn-sm">Login</a>
                     <a href="{{ route('register') }}" class="btn btn-primary  btn-sm">Register</a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    <a href="{{ route('logout') }}" class="btn btn-primary  btn-sm" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        logout
+                    </a>
+
                 </div>
             </div>
         </div>
