@@ -89,11 +89,9 @@ class CampaignCategoryController extends Controller
         } else {
             $campaignCategory->name = $request->name;
             $campaignCategory->description = $request->description;
-            // TODO:: handle image upload
+            // TODO:: handle image upload.
             $campaignCategory->update();
         }
-
-
         return redirect()->route('campaign-categories.index');
     }
 
