@@ -53,9 +53,10 @@ class AdminCampaignController extends Controller
         return back();
     }
 
-    public function destroy(ContactQuery $contactQuery)
+    public function destroy($campaignId)
     {
-        $contactQuery->delete();
-        return back();
+        $campaign = Campaign::findOrFail($campaignId);
+        $campaign->delete();
+        return redirect()->route('admin-campaigns.index');
     }
 }

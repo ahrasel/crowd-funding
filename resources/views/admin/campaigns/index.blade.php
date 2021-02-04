@@ -29,13 +29,17 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{$campaign->title}}  </td>
                                     <td>{{$campaign->description}}</td>
+
                                     <td>
                                         <div class="d-inline-flex">
                                             <a class="btn btn-primary mr-2"
                                                href="{{ route('contact-queries.show', ['contact_query' => $campaign->id]) }}"
-                                               role="button"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                               role="button"><i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
+
+                                            <!-- IconButton: Delete -->
                                             <form
-                                                action="{{ route('contact-queries.destroy', ['contact_query' => $campaign->id]) }}"
+                                                action="{{ route('admin-campaigns.destroy', ['admin_campaign' => $campaign->id]) }}"
                                                 method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -43,6 +47,7 @@
                                                 <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>
                                                 </button>
                                             </form>
+                                            <!-- IconButton: Delete End. -->
 
                                         </div>
                                     </td>
