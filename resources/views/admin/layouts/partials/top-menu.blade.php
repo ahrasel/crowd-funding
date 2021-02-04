@@ -47,7 +47,10 @@
             </li> --}}
 
     <li class="nav-item active">
-        <a class="nav-link" href=" {{ route('contact-queries.index') }} ">Contact Queries</span></a>
+        <a class="nav-link" href=" {{ route('contact-queries.index') }} ">Contact Queries</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href=" {{ route('admin-campaigns.index') }} ">Campaigns</a>
     </li>
 
     </ul>

@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+// *** Admin Routes ***
 
-// Admin Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     //dashboard route
     Route::get('/dashboard', 'Admin\HomeController@index')->name('admin.dashboard');
@@ -11,8 +11,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // campaign categories routes
     Route::resource('campaign-categories', 'Admin\CampaignCategoryController');
 
-    // campaign routes
-    // Route::resource('campaigns', 'CampaignController');
+    // Campaign routes.
+    Route::resource('admin-campaigns', 'Admin\AdminCampaignController');
 
     // Contact Queries Routes
     Route::resource('contact-queries', 'Admin\ContactQueryController');
