@@ -14,7 +14,7 @@ class SiteController extends Controller
 {
     public function home()
     {
-        $campaigns = Campaign::latest()->get();
+        $campaigns = Campaign::where('is_authenticated', 1)->latest()->get();
         $campaignCategories = CampaignCategory::latest()->get();
 
         return view('site.home.home', compact('campaigns', 'campaignCategories'));

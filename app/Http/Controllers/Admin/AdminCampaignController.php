@@ -10,7 +10,7 @@ class AdminCampaignController extends Controller
 {
     public function index()
     {
-        $campaigns = Campaign::latest()->get();
+        $campaigns = Campaign::where('is_authenticated', 0)->latest()->get();
         return view('admin.campaigns.index', compact('campaigns'));
     }
 
@@ -24,39 +24,30 @@ class AdminCampaignController extends Controller
         //
     }
 
-    public function show(ContactQuery $contactQuery)
+    public function show(Campaign $adminCampaign)
     {
-        return view('admin.contact-queries/show', compact('contactQuery'));
+        return view('admin.contact-queries/show', compact('adminCampaign'));
     }
 
-    public function edit(ContactQuery $contactQuery)
+    public function edit(Campaign $adminCampaign)
     {
-
     }
 
-    public function update(Request $request, ContactQuery $contactQuery)
+    public function update(Request $request, Campaign $adminCampaign)
     {
-        $user = auth()->user();
-        // dd($contactQuery);
-
-        // save contact query
-        $replay = new ContactQuery();
-        $replay->parent_id = $contactQuery->id;
-        $replay->first_name = $user->first_name;
-        $replay->last_name = $user->last_name;
-        $replay->email = $user->email;
-        $replay->subject = $contactQuery->subject;
-        $replay->message = $request->replay_message;
-        $replay->save();
-
-        //return back to contact page
-        return back();
-    }
-
-    public function destroy($campaignId)
-    {
-        $campaign = Campaign::findOrFail($campaignId);
-        $campaign->delete();
+        if ($request->IS_DECLINED_BUTTON) {
+            $adminCampaign->delete();
+        }
+        if ($request->IS_APPROVED_BUTTON) {
+            $adminCampaign->is_authenticated = 1;
+            $adminCampaign->update();
+        }
         return redirect()->route('admin-campaigns.index');
+    }
+
+    public function destroy(Campaign $adminCampaign)
+    {
+        $adminCampaign->delete();
+        return back();
     }
 }

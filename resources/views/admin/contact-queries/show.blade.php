@@ -6,59 +6,36 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Contact Query Details</h4>
+                    <h4>Campaign Details</h4>
                 </div>
+                
                 <div class="card-body">
-                    <p class="m-0 p-0">Full Name: <strong> {{ $contactQuery->first_name }}
-                            {{ $contactQuery->last_name }} </strong></p>
-                    <p class="m-0 p-0">Email: <strong> {{ $contactQuery->email }} </strong></p>
-                    <p class="m-0 p-0">Subject: <strong> {{ $contactQuery->subject }} </strong></p>
-                    {{-- <hr> --}}
-                    <h4 class="mt-4">Message</h4>
+                    <p class="m-0 p-0">Title: <strong> {{ $adminCampaign->title }}</strong></p>
+                    <p class="m-0 p-0">Category: <strong> {{ $adminCampaign->category->name }} </strong></p>
+                    <p class="m-0 p-0">Target Amount: <strong> {{ $adminCampaign->target_amount }} </strong></p>
+                    <p class="m-0 p-0">Created By:  <strong> {{ $adminCampaign->user->first_name }} {{ $adminCampaign->user->last_name }} </strong></p>
+                    <p class="m-0 p-0">Mobile Number:  <strong> {{ $adminCampaign->user->phone ?? $adminCampaign->user->mobile }} </strong></p>
+                    <p class="m-0 p-0">Email:  <strong> {{ $adminCampaign->user->email }} </strong></p>
                     <hr>
-                    <p>{{ $contactQuery->subject }}</p>
-                </div>
-            </div>
-
-            <div class="card mt-3">
-                <div class="card-header">
-                    <h4>All Replies</h4>
-                </div>
-                <div class="card-body">
-
-                    @foreach ($contactQuery->replies as $replay)
-                    <div class="media mb-3">
-                        <img src="{{ asset('site/img/solid.jpg') }}" class="mr-3">
-                        <div class="media-body">
-                            <h5 class="mt-0">{{ $replay->first_name }} {{ $replay->last_name }}</h5>
-                            {{ $replay->message }}
-                        </div>
-                    </div>
-                    @endforeach
-
-
+                    <h4 class="mt-4">Details</h4>
+                    <hr>
+                    <p>{{ $adminCampaign->description }}</p>
                 </div>
 
-                <div class="card-footer">
-                    <form action=" {{ route('contact-queries.update', ['contact_query' => $contactQuery->id]) }} "
-                        method="post">
+                <div class="card-footer text-right d-flex">
+                    <form action="{{ route('admin-campaigns.update', ['admin_campaign' => $adminCampaign->id]) }}" method="post" class='mr-2'>
                         @csrf
                         @method('PATCH')
-                        <div class="form-group">
-                            <label for="replay_message">Send Replay</label>
-                            <textarea class="form-control" name="replay_message" id="replay_message"
-                                rows="2"></textarea>
-                        </div>
-
-                        <div class="form-group mb-0">
-                            <div class="text-right">
-                                <a class="btn btn-danger" href="{{ route('contact-queries.index') }}" role="button"><i
-                                        class="fa fa-times" aria-hidden="true"></i> Cancel</a>
-                                <button type="submit" class="btn btn-primary">Replay</button>
-                            </div>
-                        </div>
+                        <button type="submit" name="IS_DECLINED_BUTTON" value="DECLINED_VALUE" class="btn btn-danger">Decline</button>
                     </form>
+                    <form action="{{ route('admin-campaigns.update', ['admin_campaign'=> $adminCampaign->id]) }}" method="post">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" name="IS_APPROVED_BUTTON" value="APPROVE_VALUE" class="btn btn-primary">Approved</button>
+                    </form>
+
                 </div>
+
             </div>
         </div>
     </div>
