@@ -9,6 +9,7 @@
     <section>
         <div class="container py-5">
             <h2><b>How it Works</b></h2>
+            
             <div class="row">
                 <div class="col-12">
     
@@ -21,6 +22,7 @@
                     </p>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-12">
     
@@ -35,6 +37,7 @@
                 </div>
     
             </div>
+
             <div class="row">
                 <div class="col-12">
                     <h5 style="margin-top: 35px;"><b>How to create a campaign?</b></h5>
@@ -55,6 +58,7 @@
                     <p>You can easily withdraw the money raised for your campaign through your bank account.</p>
                 </div>
             </div>
+
         </div>
     </section>
 @endsection
