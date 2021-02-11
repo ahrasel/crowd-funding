@@ -10,7 +10,7 @@
 <div class="container mt-5">
     <div class="row ">
         <div class="col-sm-6">
-            <div class="card">
+            <div class="card mb-5">
                 <div class="card-body">
 
                     @if (session()->has('status'))
