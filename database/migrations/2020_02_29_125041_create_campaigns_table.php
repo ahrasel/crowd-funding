@@ -20,6 +20,7 @@ class CreateCampaignsTable extends Migration
             $table->string('description', 1500)->nullable();
             $table->string('documents', 1000)->nullable();
             $table->double('target_amount', 11, 2)->nullable()->default(0.00);
+            $table->double('collected_amount', 11, 2)->nullable()->default(0.00);
             $table->boolean('is_active')->default(true);
             $table->boolean('is_authenticated')->default(false);
             $table->boolean('is_close')->default(false);
