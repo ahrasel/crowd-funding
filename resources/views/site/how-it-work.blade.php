@@ -17,7 +17,7 @@
                     <p>In general, crowdfunding refers to the process of raising money from many people to implement a
                         project little by little.</p>
     
-                    <p>Many people use the internet to collect a small amount of money from it.</p>
+                    <p>Many people used the internet to collect a small amount of money from it.</p>
                     <p>This money can be collected to solve any problem. For example: raising money for a helpless person.
                     </p>
                 </div>
@@ -41,12 +41,12 @@
             <div class="row">
                 <div class="col-12">
                     <h5 style="margin-top: 35px;"><b>How to create a campaign?</b></h5>
-                    <p>Undefeated is a very easy task to use. You can get the money you need by completing only 3 steps. And
+                    <p>Undefeated is a very easy task to used. You can get the money you need by completing only 3 steps. And
                         your dreams can be fulfilled, your problems can be solved, one more person can be healthy, one more
                         soul can live.</p>
                     <p>1. Create a campaign -</p>
     
-                    <p>It's free and for all time. You can create campaigns here for free without any money. Share your
+                    <p>It free and for all time. You can create campaigns here for free without any money. Share your
                         problems through text, video and images. And start withdrawing money in a moment. We will assist you
                         in every step.</p>
                     <p>2. Share-</p>
