@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campaign;
-use App\Models\CampaignCategory;
 use Illuminate\Http\Request;
+use App\Helpers\FileUploader;
+use App\Models\CampaignCategory;
 
 class CampaignController extends Controller
 {
@@ -48,8 +49,7 @@ class CampaignController extends Controller
         $campaign->description = $request->description;
         $campaign->target_amount = $request->target_amount;
         $campaign->created_by = auth()->user()->id;
-        // TODO:: Add feature image field
-        // TODO:: handle document upload issues
+        $campaign->documents = FileUploader::uploadSingleFile($request->file('image'));
         $campaign->save();
 
         return redirect()->route('campaigns.index');

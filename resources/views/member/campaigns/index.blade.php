@@ -1,20 +1,5 @@
 @extends('member.layouts.master')
 
-{{-- @section('headerStyles')
-<style>
-    .container-center {
-        position: absolute;
-        float: left;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .card-header {
-        background-color: #fff;
-    }
-</style>
-@endsection --}}
 
 @section('content')
 <div class="container container-center">
@@ -25,8 +10,15 @@
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <!-- TODO:: handle image show -->
-                        <img src="https://images.pexels.com/photos/3825011/pexels-photo-3825011.jpeg?cs=srgb&dl=woman-in-black-coat-standing-on-snow-covered-ground-3825011.jpg&fm=jpg"
-                            class="card-img" alt="...">
+                        <div class="text-center">
+                            @if($campaign->documents != null)
+                                <img src="{{ asset("uploads/$campaign->documents") }}" class="img-fluid pb-1" style="height: 300px; width: 300px">
+                            @else
+                                <img src="{{ asset('site/images/accident-helpline.png') }}" class="img-fluid pb-1"
+                                style="height: 300px; width: 300px">
+                            @endif
+                            <a href="#"></a>
+                        </div>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -58,7 +50,7 @@
                                 <div class="col-sm-4">
                                     <button type="button" class="btn btn-success">
                                         Raised <span class="badge badge-light">&#2547;
-                                            {{ $campaign->raised_amount ?? 0 }}</span>
+                                            {{ $campaign->collected_amount }}</span>
                                     </button>
                                 </div>
 
