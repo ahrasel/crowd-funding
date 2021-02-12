@@ -15,4 +15,7 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/profile', 'SiteController@profile')->name('site.profile')->middleware('auth');
     Route::patch('/profile/{user}', 'SiteController@updateProfile')->name('site.profile-update')->middleware('auth');
     Route::patch('/change/{user}', 'SiteController@updatePassword')->name('site.password-update')->middleware('auth');
+
+    Route::get('/{campaign}', 'SiteController@showCampaignDetail')->name('site.show-campaign');
+    Route::post('/save-donation', 'SiteController@saveDonation')->name('site.save-donation');
 });

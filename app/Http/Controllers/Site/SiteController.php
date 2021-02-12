@@ -8,6 +8,7 @@ use App\User;
 use App\Models\ContactQuery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Donation;
 use Illuminate\Support\Facades\Hash;
 
 class SiteController extends Controller
@@ -18,6 +19,33 @@ class SiteController extends Controller
         $campaignCategories = CampaignCategory::latest()->get();
 
         return view('site.home.home', compact('campaigns', 'campaignCategories'));
+    }
+
+    public function showCampaignDetail(Campaign $campaign)
+    {
+        return view('site.campaign-details', compact('campaign'));
+    }
+
+    public function saveDonation(Request $request)
+    {
+        $donation = new Donation();
+        $donation->user_id = auth()->id();
+        $donation->amount = $request->amount;
+        $donation->note = $request->note;
+        $donation->campaign_id = $request->campaign_id;
+        $donation->save();
+
+
+        $campaign = Campaign::find($request->campaign_id);
+        $campaign->collected_amount += $request->amount;
+
+        if ($campaign->collected_amount >= $campaign->target_amount) {
+            $campaign->is_close = 1;
+        }
+
+        $campaign->update();
+
+        return redirect()->route('site.home');
     }
 
     public function howItWork()
