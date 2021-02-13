@@ -28,8 +28,8 @@
                         </div>
 
                         <div class="col-4 text-right">
-                            <a class="btn btn-primary" href="{{ route('campaign-categories.create') }}" role="button"><i
-                                    class="fa fa-plus" aria-hidden="true"></i> Create New</a>
+                            <a class="btn btn-primary" href="{{ route('campaign-categories.create') }}" role="button">
+                                <i class="fa fa-plus" aria-hidden="true"></i> Create New</a>
                         </div>
                     </div>
                 </div>

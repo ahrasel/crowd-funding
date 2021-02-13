@@ -17,7 +17,7 @@
 @endsection
 
 @section('contents')
-<div class="container container-center">
+<div class="container container-center my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

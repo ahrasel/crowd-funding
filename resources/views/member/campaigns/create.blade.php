@@ -8,7 +8,7 @@
                 <div class="card-header">Create New Campaign</div>
 
                 <div class="card-body">
-                    <form action="{{ route('campaigns.store') }}" method="post">
+                    <form action="{{ route('campaigns.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-sm-12">
@@ -48,9 +48,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="documents">Documents</label>
-                                    <input type="file" class="form-control-file" name="documents[]" id="documents"
-                                        placeholder="documents" aria-describedby="docs" multiple>
+                                    <label for="documents">Image</label>
+                                    <input type="file" class="form-control-file" name="image" id="documents"
+                                        placeholder="documents" aria-describedby="docs">
                                 </div>
                             </div>
 
